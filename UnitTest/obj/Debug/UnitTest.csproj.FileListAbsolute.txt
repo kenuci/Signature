@@ -1,0 +1,7 @@
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\bin\Debug\UnitTest.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\bin\Debug\UnitTest.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\bin\Debug\KNguyenSampleCode.exe
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\bin\Debug\KNguyenSampleCode.pdb
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\obj\Debug\UnitTest.dll
+C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\obj\Debug\UnitTest.pdb

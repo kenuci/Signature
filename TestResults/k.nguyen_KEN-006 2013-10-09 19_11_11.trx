@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="204de6a5-8fed-4148-8ff2-1ad53842c1ac" name="k.nguyen@KEN-006 2013-10-09 19:11:11" runUser="KEN-006\k.nguyen" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="0f35ceb9-5ee1-4249-8e3b-9c879c827d3b">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\TestResults\k.nguyen_KEN-006 2013-10-09 19_11_11">
+      <DeploymentItem filename="C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\bin\Debug\KNguyenSampleCode.exe" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Failed">
+    <Counters total="3" executed="3" passed="2" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2013-10-09T19:11:11.8281250-07:00" queuing="2013-10-09T19:11:12.3125000-07:00" start="2013-10-09T19:11:12.5156250-07:00" finish="2013-10-09T19:11:13.6093750-07:00" />
+  <TestDefinitions>
+    <UnitTest name="TestAlphaNumericSpaces" storage="c:\documents and settings\administrator\my documents\visual studio 2008\projects\knguyensamplecode\unittest\bin\debug\unittest.dll" id="4c2d87ee-9d85-9a83-e161-866e0dc831da">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="cbab612e-7180-4072-8cee-56ae4e68219a" />
+      <TestMethod codeBase="C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\bin\Debug\UnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest, UnitTest" name="TestAlphaNumericSpaces" />
+    </UnitTest>
+    <UnitTest name="TestAlphaNumeric" storage="c:\documents and settings\administrator\my documents\visual studio 2008\projects\knguyensamplecode\unittest\bin\debug\unittest.dll" id="510188cc-2382-a291-93cb-9982d136c2e3">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="cf3203d2-9fbe-43f4-b1f4-ffd73519ab98" />
+      <TestMethod codeBase="C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\bin\Debug\UnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest, UnitTest" name="TestAlphaNumeric" />
+    </UnitTest>
+    <UnitTest name="TestTrimText" storage="c:\documents and settings\administrator\my documents\visual studio 2008\projects\knguyensamplecode\unittest\bin\debug\unittest.dll" id="7dc2bb5e-a7fa-e6dd-31ae-58cf204cf364">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="fa926433-c195-4df4-b12b-948416907e81" />
+      <TestMethod codeBase="C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\bin\Debug\UnitTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTest.UnitTest, UnitTest" name="TestTrimText" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="4c2d87ee-9d85-9a83-e161-866e0dc831da" executionId="cbab612e-7180-4072-8cee-56ae4e68219a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="510188cc-2382-a291-93cb-9982d136c2e3" executionId="cf3203d2-9fbe-43f4-b1f4-ffd73519ab98" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7dc2bb5e-a7fa-e6dd-31ae-58cf204cf364" executionId="fa926433-c195-4df4-b12b-948416907e81" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="cbab612e-7180-4072-8cee-56ae4e68219a" testId="4c2d87ee-9d85-9a83-e161-866e0dc831da" testName="TestAlphaNumericSpaces" computerName="KEN-006" duration="00:00:00.0537713" startTime="2013-10-09T19:11:12.5781250-07:00" endTime="2013-10-09T19:11:13.3906250-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cf3203d2-9fbe-43f4-b1f4-ffd73519ab98" testId="510188cc-2382-a291-93cb-9982d136c2e3" testName="TestAlphaNumeric" computerName="KEN-006" duration="00:00:00.0049567" startTime="2013-10-09T19:11:13.3906250-07:00" endTime="2013-10-09T19:11:13.4062500-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fa926433-c195-4df4-b12b-948416907e81" testId="7dc2bb5e-a7fa-e6dd-31ae-58cf204cf364" testName="TestTrimText" computerName="KEN-006" duration="00:00:00.1529646" startTime="2013-10-09T19:11:13.4062500-07:00" endTime="2013-10-09T19:11:13.5937500-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;Lorem &gt;. Actual:&lt;Lorem ipsum dolor sit amet&gt;. </Message>
+          <StackTrace>   at UnitTest.UnitTest.TestTrimText() in C:\Documents and Settings\Administrator\My Documents\Visual Studio 2008\Projects\KNguyenSampleCode\UnitTest\UnitTest.cs:line 83
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
