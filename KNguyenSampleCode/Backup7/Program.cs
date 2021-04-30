@@ -9,7 +9,6 @@ namespace KNguyenSampleCode
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("TX-001");
 		}
 	}
 }

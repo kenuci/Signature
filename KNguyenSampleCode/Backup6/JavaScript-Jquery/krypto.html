@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>n-Krypto Solver</title>
+<style>
+body, input{ font-family: verdana, arial, sans-serif; font-size: 11px;}
+.solnOn{ background-color: #eeeeee; display:inline-block; padding: 2px; min-width: 100px;}
+.solnOff{ display:none;}
+</style>
+</head>
+<body>
+<h1>n-Krypto Solver <font style="font-size: 8px;">(ported to javascript from .net [knguyen/20130305])</font></h1>
+<br />
+memo:
+<br />
+<textarea rows="3">13 6 21 25 2 40
+1 2 3 5 7 11 1000
+</textarea>
+<br />
+enter <i>n</i>-krypto sequence: <input type="text" id="txtInput" style="width:300px;" /> <input type="button" value="Solve" onclick="OnClick_button()" /> <input type="button" value="Clear" onclick="OnClear_button()" />
+<div id="divStatus"></div>
+<div id="divSolutions"></div>
+<div id="divSummary"></div>
+<script>
+//var strInput = "13 21 25 17 90";
+//var strInput = "3 4 7";
+//var strInput = "1 2 3 5 7 11 1000";
+
+function OnClick_button(){
+	document.getElementById( "divStatus").innerHTML = "<b>Please wait...</b>";
+	document.getElementById( "divSolutions").innerHTML = "";
+	document.getElementById( "divSummary").innerHTML = "";
+	document.getElementById( "divSolutions").className="solnOff"
+	setTimeout( CrunchNumbers, 0)
+}
+
+function OnClear_button(){
+	document.getElementById( "divStatus").innerHTML = "";
+	document.getElementById( "divSolutions").innerHTML = "";
+	document.getElementById( "divSummary").innerHTML = "";
+	document.getElementById( "divSolutions").className="solnOff"
+	document.getElementById( "txtInput").value='';
+}
+
+function CrunchNumbers(){
+	//var strInput = "13 33 51 35 23 17 51";
+	
+	m_intPossibilityCount = 0;
+	m_intSolutionCount = 0;
+
+	var strInput = document.getElementById( "txtInput").value;
+	strInput = strInput.replace( /\s+/g, " ")
+
+	var lstInput = strInput.split( " ");
+	var lstOperand = new Array();
+	var intAnswer = -1
+	for( var i=0; i<lstInput.length; i++){
+	  //alert( lstInput[i]);
+	  if( i<lstInput.length-1)
+		lstOperand[i] = parseInt( lstInput[i]);
+	  else
+	  	intAnswer = parseInt( lstInput[i]);
+	}
+	
+	var lstOperandPermutatedIdx = new Array();
+	SolveKrypto( lstOperandPermutatedIdx, 0, lstOperand, intAnswer);
+	if( m_intSolutionCount>0) document.getElementById( "divSolutions").className="solnOn";
+	document.getElementById( "divSummary").innerHTML += ("<br /><b>Solutions Found:</b> "+ m_intSolutionCount);
+	document.getElementById( "divSummary").innerHTML += ("<br /><b>Search Space:</b> " + m_intPossibilityCount);
+	document.getElementById( "divStatus").innerHTML = "";
+}
+
+
+function SolveKrypto( lstOperandPermutatedIdx, intOperandPos, lstOperand, intAnswer){
+	for( var intIdx=0; intIdx<lstOperand.length; intIdx++){
+		if( lstOperandPermutatedIdx.indexOf( intIdx)==-1){
+			var lstOperandPermutatedIdxNew = new Array();
+			
+			for( var intPermutatedOperandIdx=0; intPermutatedOperandIdx<lstOperandPermutatedIdx.length; intPermutatedOperandIdx++)
+				lstOperandPermutatedIdxNew[intPermutatedOperandIdx]=lstOperandPermutatedIdx[intPermutatedOperandIdx];
+			
+			lstOperandPermutatedIdxNew[ lstOperandPermutatedIdxNew.length]=intIdx;
+			if( lstOperandPermutatedIdxNew.length == lstOperand.length){				
+				var lstOperandPermutated = new Array();
+				for( var intPermutatedOperandIdxNew=0; intPermutatedOperandIdxNew<lstOperandPermutatedIdxNew.length; intPermutatedOperandIdxNew++)
+					lstOperandPermutated[intPermutatedOperandIdxNew] = lstOperand[ lstOperandPermutatedIdxNew[ intPermutatedOperandIdxNew]];
+
+				Operate( lstOperandPermutated, intAnswer);
+			} else{
+				//alert( ''+lstOperandPermutatedIdxNew.length);
+				SolveKrypto( lstOperandPermutatedIdxNew, ++intOperandPos, lstOperand, intAnswer); //choose next
+			}
+		}
+	}
+}
+
+function Operate(  lstOperandPermutated, intAnswer){
+	var lstOperatorCombi = new Array();
+	OperatorCombi( lstOperatorCombi, 0, lstOperandPermutated, intAnswer);
+}
+
+function OperatorCombi( lstOperatorCombi, intOperatorPos, lstOperand, intAnswer){
+	for( var intIdx=0; intIdx<4; intIdx++){
+		lstOperatorCombiNew = new Array();
+		for( var intOperatorCombiIdx=0; intOperatorCombiIdx<lstOperatorCombi.length; intOperatorCombiIdx++)
+			lstOperatorCombiNew[intOperatorCombiIdx]=lstOperatorCombi[intOperatorCombiIdx];
+
+		lstOperatorCombiNew[ lstOperatorCombiNew.length]=intIdx;
+
+		if( lstOperatorCombiNew.length == lstOperand.length-1){
+			Evaluate( lstOperand, lstOperatorCombiNew, intAnswer);
+		} else{
+			OperatorCombi( lstOperatorCombiNew, ++intOperatorPos, lstOperand, intAnswer); //choose next
+		}
+	}
+}
+
+
+var m_intPossibilityCount = 0;
+var m_intSolutionCount = 0;
+
+function Evaluate( lstOperand, lstOperator, intAnswer){
+	var decResult = 0;
+
+	var sb = ''
+
+	try{
+		for( var intIdxOperand = 0; intIdxOperand<lstOperand.length; intIdxOperand++){
+			if( intIdxOperand == 0){
+				decResult = lstOperand[0]*1.0; 
+				sb+=(''+lstOperand[0]);
+			}
+
+			if( intIdxOperand > 0){
+				switch( lstOperator[ intIdxOperand-1]){
+					case 0: 
+						decResult += lstOperand[ intIdxOperand]; 
+						sb+= " +";
+						break;
+					case 1:
+						decResult -= lstOperand[ intIdxOperand]; 
+						sb+= " -";
+						break;
+					case 2:
+						decResult /= lstOperand[ intIdxOperand]; 
+						sb+= " /";
+						break;
+					case 3: 
+						decResult *= lstOperand[ intIdxOperand]; 
+						sb+= " *";
+						break;
+				}
+				sb+=( " " + lstOperand[ intIdxOperand]);
+			}
+		}
+		m_intPossibilityCount++;
+
+		if( decResult == intAnswer*1.0){
+			//alert( sb+" = "+ intAnswer);
+			if( document.getElementById( "divSolutions").innerHTML.length>0) document.getElementById( "divSolutions").innerHTML += "<br />"
+			document.getElementById( "divSolutions").innerHTML += (sb+" = "+ intAnswer);
+			m_intSolutionCount++;
+		}
+	} catch( e){
+		; //resume
+	}			
+}
+
+</script>
+
+</body>
+</html>
